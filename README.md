@@ -7,3 +7,4 @@ nr prepare
 ```
 
 ## deploy
+https://akifo.github.io/akiho.dev--carousel-splide/
