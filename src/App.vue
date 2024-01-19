@@ -1,33 +1,25 @@
 <script setup lang="ts">
-import { Splide, SplideSlide } from "@splidejs/vue-splide";
-
-const options = {
-  rewind: true,
-  gap: "1rem",
-};
+import CarouselItem from "./components/CarouselItem.vue";
+import PaginationOne from "./components/PaginationOne.vue";
 </script>
 
 <template>
-  <Splide :options="options" aria-label="お気に入りの写真">
-    <SplideSlide>
-      <img
-        src="https://fastly.picsum.photos/id/402/200/200.jpg?hmac=9PZqzeq_aHvVAxvDPNfP6GuD58m4rilq-TUrG4e7V80"
-        alt="Sample 1"
-      />
-    </SplideSlide>
-    <SplideSlide>
-      <img
-        src="https://fastly.picsum.photos/id/794/200/200.jpg?hmac=qNLJvkiBmg4TyCSCwU__daf9sb5La0_1eRzJewRgIyU"
-        alt="Sample 2"
-      />
-    </SplideSlide>
-    <SplideSlide>
-      <img
-        src="https://fastly.picsum.photos/id/197/200/200.jpg?hmac=QpHQ9OiY_-qagHPzHZgTw7I_nE3LevYjH_1k3-xLpPk"
-        alt="Sample 3"
-      />
-    </SplideSlide>
-  </Splide>
+  <div class="flex flex-col h-screen">
+    <header class="flex items-center justify-between px-6 py-4 border-b">
+      <h1 class="text-2xl font-bold">Pagination</h1>
+    </header>
+    <main class="flex-1 overflow-y-auto p-6">
+      <CarouselItem title="Section 1" description="Description for Section 1">
+        <PaginationOne />
+      </CarouselItem>
+      <CarouselItem title="Section 1" description="Description for Section 1">
+        <PaginationOne />
+      </CarouselItem>
+      <CarouselItem title="Section 1" description="Description for Section 1">
+        <PaginationOne />
+      </CarouselItem>
+    </main>
+  </div>
 </template>
 
 <style scoped></style>
