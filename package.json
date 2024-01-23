@@ -15,7 +15,9 @@
     "@splidejs/splide": "^4.1.4",
     "@splidejs/vue-splide": "^0.6.12",
     "@vue/eslint-config-typescript": "^12.0.0",
-    "vue": "^3.3.13"
+    "swiper": "^11.0.5",
+    "vue": "^3.3.13",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
