@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
+import { router } from "./routes";
 import VueSplide from "@splidejs/vue-splide";
 // デフォルトのテーマ
 import "@splidejs/vue-splide/css";
@@ -10,4 +11,4 @@ import "@splidejs/vue-splide/css";
 // あるいは、コアスタイルのみ
 // import "@splidejs/vue-splide/css/core";
 
-createApp(App).use(VueSplide).mount("#app");
+createApp(App).use(router).use(VueSplide).mount("#app");
