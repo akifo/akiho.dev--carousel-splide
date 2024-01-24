@@ -85,7 +85,7 @@ onMounted(() => {
       prevEl: ".swiper-button-prev",
     },
     // Enable debugger
-    debugger: true,
+    // debugger: true,
   });
 });
 </script>
