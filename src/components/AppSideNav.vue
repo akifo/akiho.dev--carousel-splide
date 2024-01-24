@@ -8,8 +8,7 @@
     <nav>
       <router-link to="/splide" class="block mb-2">Splide</router-link>
       <router-link to="/swiper" class="block mb-2">Swiper</router-link>
+      <router-link to="/original" class="block mb-2">Original</router-link>
     </nav>
   </aside>
 </template>
-
-<style lang="scss" scoped></style>

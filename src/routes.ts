@@ -3,6 +3,7 @@ import PageHome from "./components/PageHome.vue";
 import PageSplide from "./components/PageSplide.vue";
 import PageSwiper from "./components/PageSwiper.vue";
 import LayoutDefault from "./components/LayoutDefault.vue";
+import PageOriginal from "./components/PageOriginal.vue";
 
 const routes = [
   {
@@ -19,6 +20,11 @@ const routes = [
     path: "/swiper",
     component: LayoutDefault,
     children: [{ path: "", component: PageSwiper }],
+  },
+  {
+    path: "/original",
+    component: LayoutDefault,
+    children: [{ path: "", component: PageOriginal }],
   },
 ];
 

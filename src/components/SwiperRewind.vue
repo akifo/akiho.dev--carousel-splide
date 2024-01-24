@@ -2,20 +2,31 @@
 import { onMounted } from "vue";
 import Swiper from "swiper";
 import { generateSlidesFromSwiperJs } from "../utils/generateSlides";
+import { Navigation } from "swiper/modules";
 
 const slides = generateSlidesFromSwiperJs();
 
 onMounted(() => {
-  new Swiper("#SwiperDefault", {});
+  new Swiper("#SwiperRewind", {
+    modules: [Navigation],
+    rewind: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
 });
 </script>
 
 <template>
-  <div id="SwiperDefault" class="swiper">
+  <div id="SwiperRewind" class="swiper">
     <div class="swiper-wrapper">
       <div v-for="slide in slides" :key="slide.alt" class="swiper-slide">
         <img :src="slide.src" :alt="slide.alt" />
       </div>
     </div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 </template>
