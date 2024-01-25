@@ -1,11 +1,10 @@
 <script lang="ts" setup>
-export type CarouselOptions = {
-  effect: "slide" | "fade" | "webgl";
-};
+import { CarouselOptions, provideCarousel } from "./useCarousel";
 
-defineProps<{
+const props = defineProps<{
   options: CarouselOptions;
 }>();
+provideCarousel(props.options);
 </script>
 
 <template>

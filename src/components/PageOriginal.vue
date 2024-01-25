@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import "swiper/css/bundle";
 import AppDemoGroup from "./AppDemoGroup.vue";
-import OriginalCarousel from "./OriginalCarousel.vue";
+import OriginalCarouselSlide from "./OriginalCarouselSlide.vue";
+import OriginalCarouselFade from "./OriginalCarouselFade.vue";
 </script>
 
 <template>
@@ -11,14 +12,13 @@ import OriginalCarousel from "./OriginalCarousel.vue";
     <div class="flex flex-col gap-20 py-20">
       <AppDemoGroup>
         <template #title>Slide</template>
-        <template #description>オプションなし</template>
-        <OriginalCarousel />
+        <template #description></template>
+        <OriginalCarouselSlide />
       </AppDemoGroup>
-
       <AppDemoGroup>
         <template #title>Fade</template>
-        <template #description>オプションなし</template>
-        <OriginalCarousel />
+        <template #description></template>
+        <OriginalCarouselFade />
       </AppDemoGroup>
     </div>
   </div>

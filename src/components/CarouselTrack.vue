@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { useDebounceFn } from "@vueuse/core";
-import { ref } from "vue";
+import { injectCarousel } from "./useCarousel";
 
-const activeIndex = ref(0);
+const { activeIndex, isFade, isSlide } = injectCarousel();
 
 // スクロール後に、CarouselTrack が内包する要素が viewport の中にあるかどうかを getBoundingClientRect で判定していく
 function calcActiveIndex(e: Event) {
@@ -22,14 +22,14 @@ const onScroll = useDebounceFn(calcActiveIndex, 40);
 </script>
 
 <template>
-  <div class="CarouselTrack" @scroll="onScroll">
+  <div class="CarouselTrack" :class="{ isFade, isSlide }" @scroll="onScroll">
     <slot />
-    <div class="absolute bottom-0 left-0">{{ activeIndex }}</div>
+    <div class="absolute bottom-8 left-0">{{ activeIndex }}</div>
   </div>
 </template>
 
 <style scoped>
-.CarouselTrack {
+.CarouselTrack.isSlide {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -40,7 +40,12 @@ const onScroll = useDebounceFn(calcActiveIndex, 40);
 }
 
 /* FIXME: scrollbar のありなしは option で設定可能にする */
-.CarouselTrack::-webkit-scrollbar {
+.CarouselTrack.isSlide::-webkit-scrollbar {
   /* display: none; */
+}
+
+.CarouselTrack.isFade {
+  display: flex;
+  max-width: 100%;
 }
 </style>
