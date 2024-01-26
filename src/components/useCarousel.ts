@@ -6,13 +6,13 @@ export type CarouselOptions = {
   autoplay?: boolean;
 };
 
-const useCarousel = (options: CarouselOptions) => {
+const useCarousel = (options: CarouselOptions, slideLength: number = 10) => {
   const activeIndex = ref(0);
   const isFade = computed(() => options.effect === "fade");
   const isSlide = computed(() => options.effect === "slide");
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let timer: null | any = null;
+  const timer = ref<null | any>(null);
   function toNext() {
     stop();
     activeIndex.value++;
@@ -23,16 +23,19 @@ const useCarousel = (options: CarouselOptions) => {
   }
   function incrementIndex() {
     activeIndex.value++;
-    timer = setTimeout(incrementIndex, 1000);
+    timer.value = setTimeout(incrementIndex, 1000);
   }
   function play() {
     stop();
     incrementIndex();
   }
   function stop() {
-    if (!timer) return;
-    clearTimeout(timer);
-    timer = null;
+    if (!timer.value) return;
+    clearTimeout(timer.value);
+    timer.value = null;
+  }
+  function setIndex(index: number) {
+    activeIndex.value = index;
   }
 
   onMounted(() => {
@@ -46,10 +49,13 @@ const useCarousel = (options: CarouselOptions) => {
     activeIndex,
     isFade,
     isSlide,
+    slideLength,
     toNext,
     toPrev,
     play,
     stop,
+    timer,
+    setIndex,
   };
 };
 

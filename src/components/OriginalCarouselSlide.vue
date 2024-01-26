@@ -7,8 +7,10 @@ import { CarouselOptions } from "./useCarousel";
 import CarouselControlButton from "./CarouselControlButton.vue";
 import CarouselControlTab from "./CarouselControlTab.vue";
 import CarouselRotation from "./CarouselRotation.vue";
+import { computed } from "vue";
 
 const slides = generateSlidesFromSwiperJs();
+const slideLength = computed(() => slides.length);
 
 const options: CarouselOptions = {
   effect: "slide",
@@ -20,7 +22,7 @@ const options: CarouselOptions = {
   <pre
     class="bg-slate-800 text-white text-xs p-4"
   ><code>{{ options }}</code></pre>
-  <CarouselContainer :options="options">
+  <CarouselContainer :options="options" :slide-length="slideLength">
     <CarouselRotation />
     <CarouselControlButton />
     <CarouselControlTab />

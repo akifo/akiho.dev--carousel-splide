@@ -3,8 +3,9 @@ import { CarouselOptions, provideCarousel } from "./useCarousel";
 
 const props = defineProps<{
   options: CarouselOptions;
+  slideLength: number;
 }>();
-provideCarousel(props.options);
+provideCarousel(props.options, props.slideLength);
 </script>
 
 <template>

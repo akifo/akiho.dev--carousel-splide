@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@heroicons/vue':
+    specifier: ^2.1.1
+    version: 2.1.1(vue@3.3.13)
   '@rushstack/eslint-patch':
     specifier: ^1.6.1
     version: 1.6.1
@@ -353,6 +356,14 @@ packages:
   /@eslint/js@8.56.0:
     resolution: {integrity: sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  /@heroicons/vue@2.1.1(vue@3.3.13):
+    resolution: {integrity: sha512-Yi5nh/89L193ALgHyJUQUdNLsKXPrrE3yj5yiR8WAlo7nZyXGxGauQcEAmBsa2XJGMhBMuEdoOiuZ8wEwTBxVQ==}
+    peerDependencies:
+      vue: '>= 3'
+    dependencies:
+      vue: 3.3.13(typescript@5.3.3)
+    dev: false
 
   /@humanwhocodes/config-array@0.11.13:
     resolution: {integrity: sha512-JSBDMiDKSzQVngfRjOdFXgFfklaXI4K9nLF49Auh21lmBWRLIK3+xTErTWD4KU54pb6coM6ESE7Awz/FNU3zgQ==}
