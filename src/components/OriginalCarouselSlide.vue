@@ -5,6 +5,8 @@ import { generateSlidesFromSwiperJs } from "../utils/generateSlides";
 import CarouselTrack from "./CarouselTrack.vue";
 import { CarouselOptions } from "./useCarousel";
 import CarouselControlButton from "./CarouselControlButton.vue";
+import CarouselControlTab from "./CarouselControlTab.vue";
+import CarouselRotation from "./CarouselRotation.vue";
 
 const slides = generateSlidesFromSwiperJs();
 
@@ -19,6 +21,9 @@ const options: CarouselOptions = {
     class="bg-slate-800 text-white text-xs p-4"
   ><code>{{ options }}</code></pre>
   <CarouselContainer :options="options">
+    <CarouselRotation />
+    <CarouselControlButton />
+    <CarouselControlTab />
     <CarouselTrack>
       <CarouselSlide
         v-for="(slide, index) in slides"
@@ -30,6 +35,5 @@ const options: CarouselOptions = {
         </div>
       </CarouselSlide>
     </CarouselTrack>
-    <CarouselControlButton />
   </CarouselContainer>
 </template>

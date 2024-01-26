@@ -1,8 +1,9 @@
-import { InjectionKey, computed, inject, provide, ref } from "vue";
+import { InjectionKey, computed, inject, onMounted, provide, ref } from "vue";
 
 export type CarouselOptions = {
   effect: "slide" | "fade" | "webgl";
   slidesPerView?: number;
+  autoplay?: boolean;
 };
 
 const useCarousel = (options: CarouselOptions) => {
@@ -10,12 +11,35 @@ const useCarousel = (options: CarouselOptions) => {
   const isFade = computed(() => options.effect === "fade");
   const isSlide = computed(() => options.effect === "slide");
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let timer: null | any = null;
   function toNext() {
+    stop();
     activeIndex.value++;
   }
   function toPrev() {
+    stop();
     activeIndex.value--;
   }
+  function incrementIndex() {
+    activeIndex.value++;
+    timer = setTimeout(incrementIndex, 1000);
+  }
+  function play() {
+    stop();
+    incrementIndex();
+  }
+  function stop() {
+    if (!timer) return;
+    clearTimeout(timer);
+    timer = null;
+  }
+
+  onMounted(() => {
+    if (options.autoplay) {
+      play();
+    }
+  });
 
   return {
     options,
@@ -24,6 +48,8 @@ const useCarousel = (options: CarouselOptions) => {
     isSlide,
     toNext,
     toPrev,
+    play,
+    stop,
   };
 };
 
